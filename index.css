@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+.cep-input {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+.cep-button {
+    /* float: left;  */
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+.cep-button:hover {
+    background: #0b7dda;
+}
+
+.cep::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.section {
+    display: flex;
+}
+
+ul #data {
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    flex-direction: column;
+    margin-top: 10px;
+    list-style-type: none;
+}
