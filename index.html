@@ -1,27 +1,41 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="index.css" />
     <meta charset="UTF-8">
-    <title>Busca Endereço</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Via Cep</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Busca Endereço</h1>
-    <div class="form">
-        <input class="cep-input" id="input" type="text" placeholder="Digite um cep" name="search">
-        <button class="cep-button" onclick="buscaCep()"><i class="fa fa-search"></i></button>
+    <header>
+        <h1>Busca Cep</h1>
+    </header>
+    <div class="container">
+
+        <form id="buscaCep">
+            <label for="cep">Cep:
+                <input type="text" name="cep" id="cep" placeholder="Digite um cep">
+                <input type="button" value="Buscar Cep" id="btnCep">
+            </label>
+
+            <label for="rua">Rua:
+            <input type="text" name="rua" size="60" id="rua"></label>
+
+            <label for="bairro">Bairro:
+            <input type="text" name="bairro" id="bairro"></label>
+
+            <label for="cidade">Cidade:
+            <input type="text" name="cidade" id="cidade">
+            <label for="uf">Uf:
+            <input type="text" name="uf" id="uf"></label>
+            </label>
+        </form>
     </div>
 
-    <div class="section">
-        <ul id="data">
 
-        </ul>
-    </div>
+    <script src="script.js"></script>
 </body>
-<script src="index.js "></script>
 
 </html>

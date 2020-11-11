@@ -1,36 +1,28 @@
-function buscaCep() {
-    let xhr = new XMLHttpRequest();
+const inputCep = document.querySelector('#cep');
+const btnCep = document.querySelector('#btnCep');
+const resultadoCep = document.querySelector('.resultadoCep');
+const rua = document.querySelector('#rua');
+const bairro = document.querySelector('#bairro');
+const cidade = document.querySelector('#cidade');
+const uf = document.querySelector('#uf');
 
-    let input = document.getElementById("input");
+btnCep.addEventListener('click', handleClick);
 
-    if (input.value === "") {
-        alert("Adicione um cep");
-        return;
-    }
-
-    xhr.open("GET", "https://viacep.com.br/ws/" + input.value + "/json/");
-
-    xhr.addEventListener("load", function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let endereco = JSON.parse(xhr.responseText);
-
-            inputData(endereco);
-        }
-    });
-
-    xhr.send();
+function handleClick(event) {
+    event.preventDefault();
+    const cep = inputCep.value;
+    buscaCep(cep);
 }
 
-function inputData(endereco) {
-    for (var key in endereco) {
-        if (endereco[key] == "") {
-            continue;
-        }
+function buscaCep(cep) {
 
-        let li = document.createElement("li");
-        let text = document.createTextNode(endereco[key]);
-
-        li.appendChild(text);
-        document.getElementById("data").appendChild(li);
-    }
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(body => {
+            let conteudo = body;
+            rua.value = (conteudo.logradouro);
+            bairro.value = (conteudo.bairro);
+            cidade.value = (conteudo.localidade);
+            uf.value = (conteudo.uf);
+        });
 }
