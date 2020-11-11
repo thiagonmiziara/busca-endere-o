@@ -26,3 +26,10 @@ function buscaCep(cep) {
             uf.value = (conteudo.uf);
         });
 }
+
+inputCep.value = localStorage.cep;
+const salvaDados = function() {
+    const inputCep = document.querySelector('#cep').value
+    localStorage.setItem('cep', inputCep);
+}
+document.onchange = salvaDados;
