@@ -14,17 +14,17 @@ function handleClick(event) {
     buscaCep(cep);
 }
 
-function buscaCep(cep) {
-
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-        .then(response => response.json())
-        .then(body => {
-            let conteudo = body;
-            rua.value = (conteudo.logradouro);
-            bairro.value = (conteudo.bairro);
-            cidade.value = (conteudo.localidade);
-            uf.value = (conteudo.uf);
-        });
+async function buscaCep(cep) {
+    try {
+        const viaCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const jsonViaCep = await viaCep.json();
+        rua.value = (jsonViaCep.logradouro);
+        bairro.value = (jsonViaCep.bairro);
+        cidade.value = (jsonViaCep.localidade);
+        uf.value = (jsonViaCep.uf);
+    } catch (erro) {
+        alert('Digite um Cep válido!');
+    }
 }
 
 inputCep.value = localStorage.cep;
