@@ -10,7 +10,6 @@ h1 {
 
 .container {
     width: 40%;
-    height: 20vh;
     display: flex;
     background: #ccc;
     box-sizing: border-box;
